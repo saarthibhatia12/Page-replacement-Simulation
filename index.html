@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Replacement Algorithms</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #f8fff4, #d4edda);
+            color: #333;
+            padding: 40px;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #198754;
+            font-weight: 700;
+        }
+
+        p {
+            margin-bottom: 30px;
+            font-size: 18px;
+            color: #555;
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn-custom {
+            font-size: 18px;
+            padding: 15px 30px;
+            width: 220px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-fifo {
+            background-color: #198754;
+            color: white;
+            border: none;
+        }
+
+        .btn-optimal {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+        }
+
+        .btn-lfu {
+            background-color: #ffc107;
+            color: white;
+            border: none;
+        }
+
+        .btn-custom:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+            opacity: 0.9;
+        }
+
+        .btn-custom:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .info-section {
+            background-color: #e9f7ef;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+            width: 100%;
+            max-width: 800px;
+            text-align: left;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .info-section h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #198754;
+            text-align: center;
+        }
+
+        .info-section p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+            text-align: center;
+        }
+
+        .info-section ul {
+            padding-left: 20px;
+            list-style-position: inside;
+            text-align: left;
+            margin: 0 auto;
+            max-width: 600px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Page Replacement Algorithms</h1>
+        <p>Select an algorithm to run the simulation:</p>
+        <div class="btn-container">
+            <a href="fifo.html">
+                <button class="btn btn-custom btn-fifo">FIFO Algorithm</button>
+            </a>
+            <a href="optimal.html">
+                <button class="btn btn-custom btn-optimal">Optimal Algorithm</button>
+            </a>
+            <a href="lfu.html">
+                <button class="btn btn-custom btn-lfu">LFU Algorithm</button>
+            </a>
+        </div>
+        <div class="info-section">
+            <h2>About Page Replacement Algorithms</h2>
+            <p>Page replacement algorithms are used in operating systems to manage the content of the pages in memory. They decide which page to remove when a new page needs to be loaded. Some common algorithms include:</p>
+            <ul>
+                <li><strong>FIFO:</strong> Removes the oldest page first.</li>
+                <li><strong>Optimal:</strong> Removes the page that will not be used for the longest time.</li>
+                <li><strong>LFU:</strong> Removes the least frequently used page.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
