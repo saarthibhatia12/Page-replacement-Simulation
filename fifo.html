@@ -264,7 +264,36 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
     </style>
-    
+    <style>
+        /* Add this to the existing styles section */
+        .hidden {
+            display: none !important;
+        }
+        
+        #referenceStringBlock.reference-string-block {
+            display: none;
+        }
+        
+        #referenceStringBlock.reference-string-block.show {
+            display: block;
+        }
+        
+        #result {
+            display: none;
+        }
+        
+        #result.show {
+            display: block;
+        }
+        
+        #simulation {
+            display: none;
+        }
+        
+        #simulation.show {
+            display: flex;
+        }
+        </style>
 </head>
 <body>
     <div class="container">
@@ -302,12 +331,17 @@
     <script>
         function simulateFIFO() {
             const referenceString = document.getElementById("referenceString").value.trim().split(" ").map(Number);
-            const frameCount = parseInt(document.getElementById("frameCount").value);
+    const frameCount = parseInt(document.getElementById("frameCount").value);
 
-            if (isNaN(frameCount) || frameCount <= 0 || referenceString.some(isNaN)) {
-                alert("Please enter valid input values.");
-                return;
-            }
+    if (isNaN(frameCount) || frameCount <= 0 || referenceString.some(isNaN)) {
+        alert("Please enter valid input values.");
+        return;
+    }
+
+    // Show the containers
+    document.getElementById("referenceStringBlock").classList.add("show");
+    document.getElementById("simulation").classList.add("show");
+    document.getElementById("result").classList.add("show");
 
             const frames = [];
             const simulationContainer = document.getElementById("simulation");
