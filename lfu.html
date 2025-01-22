@@ -329,19 +329,28 @@
 
     <script>
         function simulateLFU() {
+            // Get and validate input
             const referenceString = document.getElementById("referenceString").value.trim().split(" ").map(Number);
-    const frameCount = parseInt(document.getElementById("frameCount").value);
+            const frameCount = parseInt(document.getElementById("frameCount").value);
 
-    if (isNaN(frameCount) || frameCount <= 0 || referenceString.some(isNaN)) {
-        alert("Please enter valid input values.");
-        return;
-    }
+            if (isNaN(frameCount) || frameCount <= 0 || referenceString.some(isNaN)) {
+                alert("Please enter valid input values.");
+                return;
+            }
 
+            // Show the elements that were hidden
+            document.getElementById("referenceStringBlock").classList.add("show");
+            document.getElementById("simulation").classList.add("show");
+            document.getElementById("result").classList.add("show");
+
+            // Clear previous results
+            const simulationContainer = document.getElementById("simulation");
+            simulationContainer.innerHTML = "";
+            
+            // Rest of your existing simulateLFU code...
             const frames = [];
             const frequencyMap = {};
-            const simulationContainer = document.getElementById("simulation");
             const referenceStringBlock = document.getElementById("referenceStringBlock");
-            simulationContainer.innerHTML = ""; // Clear previous results
             referenceStringBlock.innerHTML = `Reference String: ${referenceString.join(" ")}`; // Display the reference string
 
             let pageFaults = 0;
@@ -401,14 +410,16 @@
                 simulationContainer.appendChild(stepDiv);
             });
 
+            // Calculate rates before displaying results
+            const hitRate = (hits / referenceString.length * 100).toFixed(2);
+            const faultRate = (pageFaults / referenceString.length * 100).toFixed(2);
+
             const resultDiv = document.getElementById("result");
             resultDiv.innerHTML = `
-                <div class="highlight-result">
-                    Total Page Faults: ${pageFaults} <br>
-                    Total Hits: ${hits} <br>
-                    Hit Rate: ${(hits / referenceString.length * 100).toFixed(2)}% <br>
-                    Fault Rate: ${(pageFaults / referenceString.length * 100).toFixed(2)}%
-                </div>
+                <div class="highlight-result">Total Hits: ${hits}</div>
+                <div class="highlight-result">Total Faults: ${pageFaults}</div>
+                <div class="highlight-result">Hit Rate: ${hitRate}%</div>
+                <div class="highlight-result">Fault Rate: ${faultRate}%</div>
             `;
         }
     </script>
